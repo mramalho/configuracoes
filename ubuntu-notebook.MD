@@ -1,13 +1,13 @@
 # CONFIGURAÇÕES PARA MÁQUINA DE DESENVOLVIMENTO
 
-## Pacotes e dependencias utilizadas
+## Pacotes e dependências utilizadas
 ```bash
 sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y install vim htop curl wget openjdk-17-jdk maven terminator gnupg software-properties-common openssh-server python3-pydrive python3-pydrive2 ca-certificates npm golang
 ```
 
-## Adicionando variaveis do JAVA
+## Adicionando variáveis do JAVA
 
 ```bash
 echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
@@ -84,7 +84,7 @@ sudo apt-get -y update
 sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
-## Instalando o bash Completion do Kubernetes
+## Instalando o bash completion do Kubernetes
 ```bash
 echo 'source <(kubectl completion bash)' >>~/.bashrc
 source ~/.bashrc
