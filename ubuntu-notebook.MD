@@ -7,7 +7,7 @@ sudo apt-get -y remove thunderbird \
 sudo apt -y autoremove
 
 sudo apt-get -y install vim htop curl wget openjdk-17-jdk maven terminator gnupg \
-software-properties-common openssh-server python3-pydrive python3-pydrive2 ca-certificates
+software-properties-common openssh-server python3-pydrive python3-pydrive2 ca-certificates npm golang
 
 # Adicionando variaveis do JAVA
 echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64 \
@@ -81,3 +81,8 @@ wget https://releases.hashicorp.com/terraform/1.4.6/terraform_1.4.6_linux_amd64.
 unzip terraform_1.4.6_linux_amd64.zip -d /tmp \
 sudo cp /tmp/terraform /usr/local/bin \
 rm terraform_1.4.6_linux_amd64.zip
+
+# Instalando o AWS CLI
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
