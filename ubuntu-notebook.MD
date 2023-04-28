@@ -1,7 +1,7 @@
 ## SCRIPT COM CONFIGURACOES PARA MAQUINA DE DESENVOLVIMENTO
 
 # Pacotes e dependencias utilizadas
-sudo apt-get -y update
+sudo apt-get -y update \
 sudo apt-get -y upgrade
 
 sudo apt-get -y remove thunderbird
