@@ -72,7 +72,7 @@ sudo apt-get -y install docker-compose
 ## Instando kubelet, kubeadm e kubectl
 ```bash
 sudo apt-get -y update
-sudo apt-get -y  install ca-certificates curl apt-transport-https
+sudo apt-get -y install ca-certificates curl apt-transport-https
 ```
 ```bash
 sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
