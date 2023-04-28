@@ -83,6 +83,8 @@ sudo cp /tmp/terraform /usr/local/bin \
 rm terraform_1.4.6_linux_amd64.zip
 
 # Instalando o AWS CLI
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" /
+unzip awscliv2.zip /
+sudo ./aws/install /
+rm awscliv2.zip /
+rm -rf aws/
