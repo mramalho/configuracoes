@@ -41,6 +41,7 @@ sudo snap install --classic discord
 sudo snap install --classic dbeaver-ce
 sudo snap install --classic postman
 sudo snap install --classic inkscape
+sudo snap install --classic sublime-text
 ```
 
 ## Instalando docker
@@ -72,6 +73,8 @@ sudo apt-get -y install docker-compose
 ```bash
 sudo apt-get -y update
 sudo apt-get -y  install ca-certificates curl apt-transport-https
+```
+```bash
 sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 ```
