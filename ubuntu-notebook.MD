@@ -14,10 +14,17 @@ echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64 \
 export MAVEN_HOME=/usr/share/maven \
 export PATH=$PATH:$JAVA_HOME/bin \
 export PATH=$PATH:$JAVA_MAVEN/bin" >> ~/.bashrc
+source ~/.bashrc
 
 # Configurando Git
 git config --global user.name "Marcos Ramalho" \
 git config --global user.email "mramalho@gmail.com"
+
+# Adicionando melhorias no prompt para o Git
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 
 # Adicionando pacotes utilizados
 sudo snap install --classic intellij-idea-community \
@@ -60,6 +67,10 @@ echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://a
 sudo apt-get -y update \
 sudo apt-get install -y kubelet kubeadm kubectl \
 sudo apt-mark hold kubelet kubeadm kubectl \
+
+# Instalando o bash Completion do Kubernetes
+echo 'source <(kubectl completion bash)' >>~/.bashrc
+source ~/.bashrc
 
 # Instalando o K3D
 curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.18.0/kind-linux-amd64 \
