@@ -2,25 +2,24 @@
 
 ## Pacotes e dependencias utilizadas
 ```bash
-sudo apt-get -y update \
-sudo apt-get -y upgrade \
-sudo apt-get -y install vim htop curl wget openjdk-17-jdk maven terminator gnupg \
-software-properties-common openssh-server python3-pydrive python3-pydrive2 ca-certificates npm golang
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y install vim htop curl wget openjdk-17-jdk maven terminator gnupg software-properties-common openssh-server python3-pydrive python3-pydrive2 ca-certificates npm golang
 ```
 
 ## Adicionando variaveis do JAVA
 
 ```bash
-echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64 \
-export MAVEN_HOME=/usr/share/maven \
-export PATH=$PATH:$JAVA_HOME/bin \
-export PATH=$PATH:$JAVA_MAVEN/bin" >> ~/.bashrc \
+echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export MAVEN_HOME=/usr/share/maven
+export PATH=$PATH:$JAVA_HOME/bin
+export PATH=$PATH:$JAVA_MAVEN/bin" >> ~/.bashrc
 source ~/.bashrc
 ```
 
 ## Configurando Git
 ```bash
-git config --global user.name "Marcos Ramalho" \
+git config --global user.name "Marcos Ramalho"
 git config --global user.email "mramalho@gmail.com"
 ```
 
@@ -35,14 +34,14 @@ source ~/.bashrc
 
 # Adicionando pacotes utilizados
 ```bash
-sudo snap install --classic intellij-idea-community \
-sudo snap install --classic code \
-sudo snap install --classic vlc \
-sudo snap install --classic drawio \
-sudo snap install --classic obs-studio \
-sudo snap install --classic discord \
-sudo snap install --classic dbeaver-ce \
-sudo snap install --classic postman \
+sudo snap install --classic intellij-idea-community
+sudo snap install --classic code
+sudo snap install --classic vlc
+sudo snap install --classic drawio
+sudo snap install --classic obs-studio
+sudo snap install --classic discord
+sudo snap install --classic dbeaver-ce
+sudo snap install --classic postman
 sudo snap install --classic inkscape
 ```
 
@@ -51,20 +50,21 @@ sudo snap install --classic inkscape
 sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" |
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
+
 ```bash
-sudo apt-get -y update \
+sudo apt-get -y update
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-buildx-plugin
 ```
 ```bash
-mkdir /home/"$USER"/.docker \
-sudo usermod -aG docker $USER \
-sudo chown "$USER":"$USER" /home/"$USER"/.docker -R \
-sudo chmod g+rwx "$HOME/.docker" -R \
-sudo systemctl enable docker.service \
+mkdir /home/"$USER"/.docker
+sudo usermod -aG docker $USER
+sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+sudo chmod g+rwx "$HOME/.docker" -R
+sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
 ```
 # Instalando o docker-compose
