@@ -1,3 +1,5 @@
+## SCRIPT COM CONFIGURACOES PARA MAQUINA DE DESENVOLVIMENTO
+
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
