@@ -25,9 +25,7 @@ git config --global user.email "mramalho@gmail.com"
 
 ## Adicionando melhorias no prompt para o Git
 ```bash
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
+parse_git_branch() { git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/' }
 export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 source ~/.bashrc
 ```
@@ -84,7 +82,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 ```
 ## Instalando o bash completion do Kubernetes
 ```bash
-echo 'source <(kubectl completion bash)' >>~/.bashrc
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
 source ~/.bashrc
 ```
 
