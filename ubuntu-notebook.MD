@@ -1,34 +1,40 @@
-## SCRIPT COM CONFIGURACOES PARA MAQUINA DE DESENVOLVIMENTO
+# SCRIPT COM CONFIGURACOES PARA MAQUINA DE DESENVOLVIMENTO
 
-# Pacotes e dependencias utilizadas
+## Pacotes e dependencias utilizadas
+```bash
 sudo apt-get -y update \
 sudo apt-get -y upgrade \
-sudo apt-get -y remove thunderbird \
-sudo apt -y autoremove
-
 sudo apt-get -y install vim htop curl wget openjdk-17-jdk maven terminator gnupg \
 software-properties-common openssh-server python3-pydrive python3-pydrive2 ca-certificates npm golang
+```
 
-# Adicionando variaveis do JAVA
+## Adicionando variaveis do JAVA
+
+```bash
 echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64 \
 export MAVEN_HOME=/usr/share/maven \
 export PATH=$PATH:$JAVA_HOME/bin \
 export PATH=$PATH:$JAVA_MAVEN/bin" >> ~/.bashrc \
 source ~/.bashrc
+```
 
-# Configurando Git
+## Configurando Git
+```bash
 git config --global user.name "Marcos Ramalho" \
 git config --global user.email "mramalho@gmail.com"
+```
 
-# Adicionando melhorias no prompt para o Git
+## Adicionando melhorias no prompt para o Git
+```bash
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
-
 source ~/.bashrc
+```
 
 # Adicionando pacotes utilizados
+```bash
 sudo snap install --classic intellij-idea-community \
 sudo snap install --classic code \
 sudo snap install --classic vlc \
@@ -38,38 +44,46 @@ sudo snap install --classic discord \
 sudo snap install --classic dbeaver-ce \
 sudo snap install --classic postman \
 sudo snap install --classic inkscape
+```
 
 # Instalando docker
+```bash
 sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
+```
+```bash
 sudo apt-get -y update \
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-buildx-plugin
-
+```
+```bash
 mkdir /home/"$USER"/.docker \
 sudo usermod -aG docker $USER \
 sudo chown "$USER":"$USER" /home/"$USER"/.docker -R \
 sudo chmod g+rwx "$HOME/.docker" -R \
 sudo systemctl enable docker.service \
 sudo systemctl enable containerd.service
-
+```
 # Instalando o docker-compose
+```bash
 sudo apt-get -y install docker-compose
+```
 
 # Instando kubelet, kubeadm e kubectl
-sudo apt-get -y update \
-sudo apt-get -y  install ca-certificates curl apt-transport-https \
-sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg \
+```bash
+sudo apt-get -y update
+sudo apt-get -y  install ca-certificates curl apt-transport-https
+sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-
-sudo apt-get -y update \
-sudo apt-get install -y kubelet kubeadm kubectl \
-sudo apt-mark hold kubelet kubeadm kubectl \
-
+```
+```bash
+sudo apt-get -y update
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
+```
 # Instalando o bash Completion do Kubernetes
 echo 'source <(kubectl completion bash)' >>~/.bashrc
 source ~/.bashrc
