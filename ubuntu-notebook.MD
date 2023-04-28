@@ -10,9 +10,9 @@ sudo apt-get -y install vim htop curl wget openjdk-17-jdk maven terminator gnupg
 software-properties-common openssh-server python3-pydrive python3-pydrive2 ca-certificates
 
 # Adicionando variaveis do JAVA
-echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
-export MAVEN_HOME=/usr/share/maven
-export PATH=$PATH:$JAVA_HOME/bin
+echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64 \
+export MAVEN_HOME=/usr/share/maven \
+export PATH=$PATH:$JAVA_HOME/bin \
 export PATH=$PATH:$JAVA_MAVEN/bin" >> ~/.bashrc
 
 # Configurando Git
