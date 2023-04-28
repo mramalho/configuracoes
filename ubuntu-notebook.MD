@@ -85,33 +85,45 @@ sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
 # Instalando o bash Completion do Kubernetes
+```bash
 echo 'source <(kubectl completion bash)' >>~/.bashrc
 source ~/.bashrc
+```
 
 # Instalando o K3D
-curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.18.0/kind-linux-amd64 \
-chmod +x ./kind\ 
+```bash
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.18.0/kind-linux-amd64
+chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
+```
 
 # Instalando o K9s
-wget https://github.com/derailed/k9s/releases/download/v0.27.3/k9s_Linux_amd64.tar.gz \
+```bash
+wget https://github.com/derailed/k9s/releases/download/v0.27.3/k9s_Linux_amd64.tar.gz
 sudo tar xfzv k9s_Linux_amd64.tar.gz -C /usr/local/bin
+```
 
 # Instalando o Helm
-curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 \
-sudo chmod 700 get_helm.sh \
-./get_helm.sh \
+```bash
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+sudo chmod 700 get_helm.sh
+./get_helm.sh
 rm get_helm.sh
+```
 
 # Instalando o Terraform
-wget https://releases.hashicorp.com/terraform/1.4.6/terraform_1.4.6_linux_amd64.zip \
-unzip terraform_1.4.6_linux_amd64.zip -d /tmp \
-sudo cp /tmp/terraform /usr/local/bin \
+```bash
+wget https://releases.hashicorp.com/terraform/1.4.6/terraform_1.4.6_linux_amd64.zip
+unzip terraform_1.4.6_linux_amd64.zip -d /tmp
+sudo cp /tmp/terraform /usr/local/bin
 rm terraform_1.4.6_linux_amd64.zip
+```
 
 # Instalando o AWS CLI
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
-unzip awscliv2.zip \
-sudo ./aws/install \
-rm awscliv2.zip \
-rm -rf aws/
+```bash
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+rm awscliv2.zip
+rm -rf aw/
+```
