@@ -3,11 +3,11 @@
 # Pacotes e dependencias utilizadas
 sudo apt-get -y update \
 sudo apt-get -y upgrade
-
-sudo apt-get -y remove thunderbird
+sudo apt-get -y remove thunderbird \
 sudo apt -y autoremove
 
-sudo apt-get -y install vim htop curl wget openjdk-17-jdk maven terminator gnupg software-properties-common openssh-server python3-pydrive python3-pydrive2 ca-certificates
+sudo apt-get -y install vim htop curl wget openjdk-17-jdk maven terminator gnupg \
+software-properties-common openssh-server python3-pydrive python3-pydrive2 ca-certificates
 
 # Adicionando variaveis do JAVA
 echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
@@ -16,18 +16,18 @@ export PATH=$PATH:$JAVA_HOME/bin
 export PATH=$PATH:$JAVA_MAVEN/bin" >> ~/.bashrc
 
 # Configurando Git
-git config --global user.name "Marcos Ramalho"
+git config --global user.name "Marcos Ramalho" \
 git config --global user.email "mramalho@gmail.com"
 
 # Adicionando pacotes utilizados
-sudo snap install --classic intellij-idea-community
-sudo snap install --classic code
-sudo snap install --classic vlc
-sudo snap install --classic drawio
-sudo snap install --classic obs-studio
-sudo snap install --classic discord
-sudo snap install --classic dbeaver-ce
-sudo snap install --classic postman
+sudo snap install --classic intellij-idea-community \
+sudo snap install --classic code \
+sudo snap install --classic vlc \
+sudo snap install --classic drawio \
+sudo snap install --classic obs-studio \
+sudo snap install --classic discord \
+sudo snap install --classic dbeaver-ce \
+sudo snap install --classic postman \
 sudo snap install --classic inkscape
 
 # Instalando docker
