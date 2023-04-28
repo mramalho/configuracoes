@@ -32,7 +32,7 @@ export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 source ~/.bashrc
 ```
 
-# Adicionando pacotes utilizados
+## Adicionando pacotes utilizados
 ```bash
 sudo snap install --classic intellij-idea-community
 sudo snap install --classic code
@@ -45,7 +45,7 @@ sudo snap install --classic postman
 sudo snap install --classic inkscape
 ```
 
-# Instalando docker
+## Instalando docker
 ```bash
 sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
@@ -67,12 +67,12 @@ sudo chmod g+rwx "$HOME/.docker" -R
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
 ```
-# Instalando o docker-compose
+## Instalando o docker-compose
 ```bash
 sudo apt-get -y install docker-compose
 ```
 
-# Instando kubelet, kubeadm e kubectl
+## Instando kubelet, kubeadm e kubectl
 ```bash
 sudo apt-get -y update
 sudo apt-get -y  install ca-certificates curl apt-transport-https
@@ -84,26 +84,26 @@ sudo apt-get -y update
 sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
-# Instalando o bash Completion do Kubernetes
+## Instalando o bash Completion do Kubernetes
 ```bash
 echo 'source <(kubectl completion bash)' >>~/.bashrc
 source ~/.bashrc
 ```
 
-# Instalando o K3D
+## Instalando o K3D
 ```bash
 curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.18.0/kind-linux-amd64
 chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
 ```
 
-# Instalando o K9s
+## Instalando o K9s
 ```bash
 wget https://github.com/derailed/k9s/releases/download/v0.27.3/k9s_Linux_amd64.tar.gz
 sudo tar xfzv k9s_Linux_amd64.tar.gz -C /usr/local/bin
 ```
 
-# Instalando o Helm
+## Instalando o Helm
 ```bash
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 sudo chmod 700 get_helm.sh
@@ -111,7 +111,7 @@ sudo chmod 700 get_helm.sh
 rm get_helm.sh
 ```
 
-# Instalando o Terraform
+## Instalando o Terraform
 ```bash
 wget https://releases.hashicorp.com/terraform/1.4.6/terraform_1.4.6_linux_amd64.zip
 unzip terraform_1.4.6_linux_amd64.zip -d /tmp
@@ -119,7 +119,7 @@ sudo cp /tmp/terraform /usr/local/bin
 rm terraform_1.4.6_linux_amd64.zip
 ```
 
-# Instalando o AWS CLI
+## Instalando o AWS CLI
 ```bash
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
