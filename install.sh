@@ -18,6 +18,9 @@ export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 EOL
 source ~/.bashrc
 
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt-get -y install ./google-chrome-stable_current_amd64.deb
+
 sudo snap install --classic vlc
 sudo snap install --classic code
 sudo snap install --classic drawio
