@@ -39,6 +39,7 @@ sudo snap install --classic postman
 sudo snap install --classic obs-studio
 sudo snap install --classic dbeaver-ce
 sudo snap install --classic sublime-text
+sudo snap install --classic pycharm-community
 sudo snap install --classic intellij-idea-community
 ```
 
