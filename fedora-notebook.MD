@@ -1,10 +1,8 @@
-# CONFIGURAÇÕES PARA MÁQUINA DE DESENVOLVIMENTO
+# CONFIGURAÇÕES PARA MÁQUINA DE DESENVOLVIMENTO -FEDORA
 
 ## Pacotes e dependências utilizadas
 ```bash
-sudo yum -y update
-sudo yum -y upgrade
-sudo yum -y install htop curl wget awscli java-17-openjdk maven terminator gnupg  zip openssh-server
+sudo dnf -y install htop curl wget awscli java-17-openjdk maven terminator gnupg  zip openssh-server
 ```
 
 ## Adicionando variáveis do JAVA
@@ -28,8 +26,8 @@ source ~/.bashrc
 ```bash
 sudo flatpak -y install com.google.Chrome
 sudo flatpak -y install org.videolan.VLC
-sudo flatpak -y install org.videolan.VLC
-sudo flatpak -y install org.videolan.VLC
+sudo flatpak -y install com.visualstudio.code
+sudo flatpak -y install com.jgraph.drawio.desktop
 sudo flatpak -y install com.discordapp.Discord
 sudo flatpak -y install com.getpostman.Postman
 sudo flatpak -y install com.obsproject.Studio
@@ -41,36 +39,44 @@ sudo flatpak -y install com.jetbrains.IntelliJ-IDEA-Community
 
 ## Instalando Docker e Docker-Compose
 ```bash
-for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
-# Add Docker's official GPG key:
-sudo apt-get update
-sudo apt-get install ca-certificates curl gnupg
-sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
-# Add the repository to Apt sources:
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
+sudo dnf remove -y  docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-selinux \
+                  docker-engine-selinux \
+                  docker-engine
+sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo                  
+                  
+sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin   
+sudo systemctl start docker
+sudo docker run hello-world
+sudo groupadd docker
 sudo usermod -aG docker $USER
-
 newgrp docker
+docker run hello-world
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
-sudo apt-get -y install docker-compose
+sudo dnf istall -y docker-compose
+                  
 ```
 
 ## Instando kubectl
 ```bash
-sudo apt-get -y update
-sudo apt-get -y install apt-transport-https ca-certificates curl
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
-echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
-sudo apt-get -y update
-sudo apt-get -y install kubectl bash-completion
-
+cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://pkgs.k8s.io/core:/stable:/v1.28/rpm/
+enabled=1
+gpgcheck=1
+gpgkey=https://pkgs.k8s.io/core:/stable:/v1.28/rpm/repodata/repomd.xml.key
+EOF
+sudo dnf install -y kubectl
+sudo dnf install -y bash-completion
 echo 'source <(kubectl completion bash)' >>~/.bashrc
 source ~/.bashrc
 ```
@@ -78,7 +84,7 @@ source ~/.bashrc
 ## Instalando o Kind
 ```bash
 [ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
-chmod +x ./kind
+sudo chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
 ```
 
@@ -105,24 +111,16 @@ sudo mv /tmp/k9s /usr/local/bin
 
 ## Instalando o Helm
 ```bash
-curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
-sudo apt-get -y install apt-transport-https --yes
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
-sudo apt-get -y update
-sudo apt-get -y install helm
+sudo dnf install -y helm
 ```
 
 ## Instalando o Terraform
 ```bash
-sudo apt-get -y update && sudo apt-get -y install gnupg software-properties-common
-wget -O- https://apt.releases.hashicorp.com/gpg | \
-gpg --dearmor | \
-sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
-https://apt.releases.hashicorp.com lunar main" | \
-sudo tee /etc/apt/sources.list.d/hashicorp.list
-sudo apt-get -y update
-sudo apt-get -y install terraform
+sudo dnf install -y dnf-plugins-core	
+sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+sudo dnf -y install terraform
+touch ~/.bashrc
+terraform -install-autocomplete
 ```
 
 ## Instalando o Terragrunt
@@ -130,11 +128,13 @@ sudo apt-get -y install terraform
 curl -o /tmp/terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v0.53.8/terragrunt_linux_amd64
 chmod +x /tmp/terragrunt
 sudo mv /tmp/terragrunt /usr/local/bin
+touch ~/.bashrc
+terragrunt --install-autocomplete
 ```
 
 ## Instalando o OpenLens
 ```bash
-curl -sLO "https://github.com/MuhammedKalkan/OpenLens/releases/download/v6.5.2-366/OpenLens-6.5.2-366.amd64.deb"
-sudo mv OpenLens-6.5.2-366.amd64.deb /tmp/.
-sudo dpkg -i /tmp/OpenLens-6.5.2-366.amd64.deb
+curl -sLO "https://github.com/MuhammedKalkan/OpenLens/releases/download/v6.5.2-366/OpenLens-6.5.2-366.x86_64.rpm"
+sudo mv OpenLens-6.5.2-366.x86_64.rpm /tmp/.
+sudo rpm -i /tmp/OpenLens-6.5.2-366.x86_64.rpm
 ```
