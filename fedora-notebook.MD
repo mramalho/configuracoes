@@ -2,10 +2,8 @@
 
 ## Pacotes e dependências utilizadas
 ```bash
-sudo apt-get -y update
-sudo apt-get -y upgrade
-sudo apt-get -y remove thunderbird
-sudo apt-get -y autoremove
+sudo yum -y update
+sudo yum -y upgrade
 sudo yum -y install htop curl wget awscli java-17-openjdk maven terminator gnupg  zip openssh-server
 ```
 
