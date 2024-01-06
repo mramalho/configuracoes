@@ -24,6 +24,7 @@ source ~/.bashrc
 
 ## Adicionando pacotes utilizados
 ```bash
+sudo flatpak -y update
 sudo flatpak -y install com.google.Chrome
 sudo flatpak -y install org.videolan.VLC
 sudo flatpak -y install com.visualstudio.code
