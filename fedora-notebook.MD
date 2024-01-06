@@ -23,6 +23,7 @@ source ~/.bashrc
 ```
 
 ## Adicionando pacotes utilizados
+** Precisa primeiramente ativar o uso de repositórios 
 ```bash
 sudo flatpak -y update
 sudo flatpak -y install com.google.Chrome
