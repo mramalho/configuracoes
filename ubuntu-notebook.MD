@@ -117,7 +117,7 @@ sudo mv /tmp/eksctl /usr/local/bin
 
 ## Instalando o K9s
 ```bash
-curl -sLO "https://github.com/derailed/k9s/releases/download/v0.28.2/k9s_Linux_amd64.tar.gz"
+curl -sLO "https://github.com/derailed/k9s/releases/download/v0.31.7/k9s_Linux_amd64.tar.gz"
 tar -xzf k9s_Linux_amd64.tar.gz -C /tmp && rm k9s_Linux_amd64.tar.gz
 chmod +x /tmp/k9s
 sudo mv /tmp/k9s /usr/local/bin
