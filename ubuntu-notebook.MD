@@ -146,7 +146,7 @@ sudo apt-get -y install terraform
 ```
 
 ## Instalando o Terragrunt
-``bash
+```bash
 curl -o /tmp/terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v0.55.0/terragrunt_linux_amd64
 chmod +x /tmp/terragrunt
 sudo mv /tmp/terragrunt /usr/local/bin
