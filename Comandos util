@@ -1,0 +1,2 @@
+Criar chave pem via linha de comando
+ssh-keygen -P "" -t rsa -b 4096 -m pem -f arquivo.pem
