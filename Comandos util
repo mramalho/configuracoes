@@ -1,2 +1,5 @@
-Criar chave pem via linha de comando
+Criar chave pem via linha de comando:
 ssh-keygen -P "" -t rsa -b 4096 -m pem -f arquivo.pem
+
+Exportar chave pública de uma chave privada:
+ssh-keygen -y -f arquivo.pem
