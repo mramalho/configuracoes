@@ -31,7 +31,6 @@ source ~/.bashrc
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt-get -y install ./google-chrome-stable_current_amd64.deb
 
-sudo snap install --classic vlc
 sudo snap install --classic code
 sudo snap install --classic drawio
 sudo snap install --classic discord
@@ -39,7 +38,6 @@ sudo snap install --classic postman
 sudo snap install --classic obs-studio
 sudo snap install --classic dbeaver-ce
 sudo snap install --classic sublime-text
-sudo snap install --classic pycharm-community
 sudo snap install --classic intellij-idea-community
 ```
 
