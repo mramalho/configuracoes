@@ -6,7 +6,7 @@ sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y remove thunderbird
 sudo apt-get -y autoremove
-sudo apt-get -y install htop curl wget awscli openjdk-17-jdk maven terminator gnupg software-properties-common zip openssh-server python-is-python3
+sudo apt-get -y install htop curl wget openjdk-17-jdk maven terminator gnupg software-properties-common zip openssh-server python-is-python3
 ```
 
 ## Adicionando variáveis do JAVA
