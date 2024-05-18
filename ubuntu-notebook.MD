@@ -13,7 +13,7 @@ sudo apt-get -y install htop curl wget openjdk-8-jdk openjdk-11-jdk openjdk-17-j
 
 ```bash
 cat >> ~/.bashrc << EOL
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
 export MAVEN_HOME=/usr/share/maven
 export PATH=$PATH:$JAVA_HOME/bin
 export PATH=$PATH:$JAVA_MAVEN/bin
