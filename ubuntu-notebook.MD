@@ -40,6 +40,9 @@ sudo snap install --classic dbeaver-ce
 sudo snap install --classic sublime-text
 sudo snap install --classic intellij-idea-community
 sudo snap install --classic aws-cli
+sudo snap install --classic terraform
+sudo snap install --classic terragrunt
+
 ```
 
 ## Instalando Docker e Docker-Compose
