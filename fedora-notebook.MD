@@ -2,7 +2,7 @@
 
 ## Pacotes e dependências utilizadas
 ```bash
-sudo dnf -y install htop curl wget awscli java-17-openjdk maven terminator gnupg  zip openssh-server
+sudo dnf -y install htop curl wget awscli java-17-openjdk maven terminator gnupg  zip openssh-server golang
 ```
 
 ## Adicionando variáveis do JAVA
@@ -27,15 +27,10 @@ source ~/.bashrc
 ```bash
 sudo flatpak -y update
 sudo flatpak -y install com.google.Chrome
-sudo flatpak -y install org.videolan.VLC
 sudo flatpak -y install com.visualstudio.code
 sudo flatpak -y install com.jgraph.drawio.desktop
-sudo flatpak -y install com.discordapp.Discord
-sudo flatpak -y install com.getpostman.Postman
-sudo flatpak -y install com.obsproject.Studio
 sudo flatpak -y install io.dbeaver.DBeaverCommunity
 sudo flatpak -y install com.sublimetext.three
-sudo flatpak -y install com.jetbrains.PyCharm-Community
 sudo flatpak -y install com.jetbrains.IntelliJ-IDEA-Community
 ```
 
