@@ -15,8 +15,6 @@ sudo apt-get -y install htop curl wget openjdk-8-jdk openjdk-11-jdk openjdk-17-j
 cat >> ~/.bashrc << EOL
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
 export MAVEN_HOME=/usr/share/maven
-export PATH=$PATH:$JAVA_HOME/bin
-export PATH=$PATH:$JAVA_MAVEN/bin
 
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
