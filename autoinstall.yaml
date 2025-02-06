@@ -1,0 +1,47 @@
+#cloud-config
+autoinstall:
+    version: 1
+    identity:
+        realname: 'Marcos Ramalho'
+        hostname: thorin
+        username: mramalho
+        password: '$y$j9T$K1E58JBXBrFFG5BOcSZC51$BhTFbbT.wID2R02Adz4sfpXy7oZ7KpuNQHGw1mii8z2'
+    locale: pt_BR.utf8
+    keyboard:
+        layout: br
+    timezone: "America/Sao_Paulo"   
+    ssh:
+      install-server: true
+    packages:
+        - libreoffice
+        - git
+        - wget
+        - htop 
+        - curl
+        - wget
+        - openjdk-21-jdk
+        - maven
+        - terminator
+        - gnupg
+        - software-properties-common
+        - zip
+        - python-is-python3
+        - golang
+    snaps:
+        - name: code
+          channel: stable
+          classic: false
+        - name: drwaio
+          channel: stable
+          classic: true
+        - name: sublime-text
+          channel: stable
+          classic: true
+    codecs:
+        install: true
+    drivers:
+        install: true
+    updates: all
+    late-commands:
+      - curl -fsSL https://get.docker.com/ | sh
+    shutdown: reboot
