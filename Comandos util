@@ -3,3 +3,36 @@ ssh-keygen -P "" -t rsa -b 4096 -m pem -f arquivo.pem
 
 Exportar chave pública de uma chave privada:
 ssh-keygen -y -f arquivo.pem
+
+# Configuração de Lifecycle no Amazon S3
+Este exemplo demonstra como configurar uma regra de **Lifecycle** no bucket `mramalho-keeggo` para mover objetos automaticamente para a classe **GLACIER** após 180 dias.
+---
+## 📌 Objetivo
+Mover automaticamente todos os objetos do bucket para a classe de armazenamento **GLACIER** após 6 meses (180 dias), reduzindo custos de armazenamento.
+---
+
+## 📁 1. Criar o arquivo de configuração
+Crie um arquivo chamado `lifecycle.json` com o seguinte conteúdo:
+```json
+{
+  "Rules": [
+    {
+      "ID": "MoveToGlacierAfter180Days",
+      "Filter": {
+        "Prefix": ""
+      },
+      "Status": "Enabled",
+      "Transitions": [
+        {
+          "Days": 180,
+          "StorageClass": "GLACIER"
+        }
+      ]
+    }
+  ]
+}
+
+
+aws s3api put-bucket-lifecycle-configuration \
+  --bucket mramalho-keeggo \
+  --lifecycle-configuration file://lifecycle.json
